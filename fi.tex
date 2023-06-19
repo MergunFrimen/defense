@@ -11,13 +11,14 @@
 \usetheme[
   workplace=fi,
   ]{MU}
-\usepackage{textalpha}
+  \usepackage{textalpha}
+  \usepackage{subfigure}
 
 \title[Modern visualization of partial atomic charges in Mol*]{Modern visualization of partial atomic charges in Mol*}
 \subtitle[Short Presentation Subtitle]{Bachelor's thesis defense}
-\author[Dominik Tichý]{Dominik Tichý\texorpdfstring{\\}{, }492772@mail.muni.cz}
+\author[Dominik Tichý]{Dominik Tichý}
 \institute[FI MU]{Faculty of Informatics, Masaryk University}
-\date{\today}
+\date{June 30, 2023}
 \subject{Presentation Subject}
 \keywords{the, presentation, keywords}
 \begin{document}
@@ -26,67 +27,284 @@
 \maketitle
 \end{frame}
 
-\section[Short Section 1 Name]{Full Section 1 Name}
-\subsection[Short Subsection 1 Name]{Full Subsection 1 Name}
-
-\begin{frame}{Frame Title}{Frame Subtitle}
-plain text, \structure{page structure}, \alert{emphasis}
-\begin{itemize}
-  \item a single-line bullet list item
-  \item a bullet list item that is quite long (in order to force a line break),
-    which also contains \alert{emphasized text}
+\begin{frame}{Partial atomic charges}
   \begin{itemize}
-    \item a second-level list item
+    \item used to describe the distribution of electrons in a molecule
+    \item applications:
     \begin{itemize}
-      \item a third-level list item
+      \item molecular docking
+      \item pharmacophore modeling
+      \item molecular dynamics simulations
     \end{itemize}
-    \item \alert{an emphasized second-level list item}
+    \item calculation methods:
+    \begin{itemize}
+      \item quantum mechanics - extremely slow
+      \item empirical methods - much faster with slight cost to accuracy
+    \end{itemize}
   \end{itemize}
-\end{itemize}
-\begin{enumerate}
-  \item a numbered list item
+\end{frame}
+
+\begin{frame}{SB NCBR software tools}
+  \begin{itemize}
+    \item developed at the Structural bioinformatics research group (SB NCBR) in Brno
+    \item programs for calculating partial atomic charges:
+    \begin{itemize}
+      \item Atomic Charge Calculator II (ACC~II)
+      \item αCharges (AlphaCharges)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Motivation}
+  \begin{itemize}
+    \item ACC~II uses the LiteMol Viewer
+    \begin{itemize}
+      \item no longer maintained $\rightarrow$ needs to be replaced
+    \end{itemize}
+    \item the Mol* Viewer is the modern replacement for LiteMol
+    \begin{itemize}
+      \item no support for partial atomic charges
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Thesis objectives}
   \begin{enumerate}
-    \item a second-level list item containing a math expression
-      \[ E = mc^2 \]
-      and a citation
+    \item study the minimum necessary theory on partial atomic charges
+    \item extend the Mol* Viewer to support charge visualization
+    \item integrate updated Mol* Viewer into:
+    \begin{itemize}
+      \item ACC~II
+      \item αCharges
+    \end{itemize}
   \end{enumerate}
-\end{enumerate}
 \end{frame}
 
-\subsection[Short Subsection 2 Name]{Full Subsection 2 Name}
+\section{Mol* extension}
 
-\begin{frame}{Text Blocks}
-text above a block\footnote{a footnote with an \url{https://address.edu}}
-\begin{block}{Block}
-  text in a block
-\end{block}
-\begin{exampleblock}{Example Block}
-  text in a block
-\end{exampleblock}
-\begin{alertblock}{Emphasized Block}
-  text in a block
-\end{alertblock}
+\begin{frame}{}
+  \begin{figure}
+    \includegraphics[width=\textwidth,keepaspectratio]{images/molstar-use-case.png}
+  \end{figure}
 \end{frame}
 
-\section[Contribution of the thesis]{Contribution of the thesis}
+\begin{frame}{}
+  \begin{figure}
+    \includegraphics[width=0.8\textwidth,keepaspectratio]{images/mmcif_erd.png}
+    \caption{Diagram of the custom mmCIF categories}
+  \end{figure}
+\end{frame}
 
-\subsection[NAR paper]{NAR paper}
+\begin{frame}{}
+  \begin{figure}
+    \centering
+    \subfigure[Ball and stick]{\label{fig:partial_charges_color_theme-bas}\includegraphics[width=0.45\textwidth]{images/1F162-bas.png}}
+    \subfigure[Surface]{\label{fig:partial_charges_color_theme-surface}\includegraphics[width=0.45\textwidth]{images/1F16-surface.png}}
+    \subfigure[Cartoon]{\label{fig:partial_charges_color_theme-cartoon}\includegraphics[width=0.45\textwidth]{images/1F16-cartoon.png}}
+  \end{figure}  
+\end{frame}
 
-\begin{frame}{Contribution of the thesis}{NAR paper}
+\section[Integration of Mol* viewer]{Integration of Mol* viewer}
+
+\begin{frame}{Integration of Mol* viewer into ACC~II}
+  \begin{itemize}
+    \item swapped the LiteMol Viewer for the Mol* Viewer
+    \item added support for multiple calculations on one request
+    \begin{itemize}
+      \item updated setup page to allow multiple calculations
+      \item added controls for switching between charge sets
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\subsection[ACC~II]{ACC~II}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/acc2.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/new_setup.png}
+  \end{figure}
+\end{frame}
+
+\subsection[αCharges]{αCharges}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/alpha-charges.png}
+  \end{figure}
+  \end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/focus.png}
+  \end{figure}
+  \end{frame}
+
+\section[]{}
+
+\begin{frame}{Nucleic Acids Research paper}
 \begin{figure}
-  \includegraphics[width=0.8\textwidth,keepaspectratio]{images/paper.png}
-  \caption{NAR paper \cite{schindler2023acharges}}
+  \includegraphics[width=1\textwidth,keepaspectratio]{images/paper.png}
+  \caption{αCharges paper published in NAR \cite{schindler2023acharges}}
 \end{figure}
 \end{frame}
 
-\section{Conclusion}
-
 \begin{frame}{Conclusion}
   \begin{itemize}
-    \item created a visualization of partial atomic charges in Mol*
-    \item integrated the visualization into the ACC2 and αCharges web applications
-    \item extended the capabilities of the ACC2 web application
-    \item contributed with the work to the NAR paper
+    \item created an Mol* extension for visualizing partial atomic charges
+    \item integrated the updated Mol* viewer into the ACC~II and αCharges web applications
+    \item extended the capabilities of ACC~II to support multiple calculations on one request
+    \item contributed with the work to the αCharges NAR paper
+  \end{itemize}
+\end{frame}
+
+\section{}
+
+\begin{frame}{Oponents' questions}
+  \begin{enumerate}
+    \item Proč jste pro vývoj Mol* pluginu zvolil Vite build tool? Zvažoval jste i jiné alternativy?
+    \item V jakých formátech je možno načíst náboje do Mol*?
+    \item Jste schopen využít funkcionalitu pro vizualizaci nábojů v Mol* i pro více přiložených molekul? Pokud ano, mohl byste to ukázat na příkladu? Např. podle nábojů obarvit a přiložit PIN proteiny, které jsou využity jako use case na webu αCharges?
+    \item Bylo by možno do budoucna podle nábojů obarvit i jiné objekty než atomy, elementy sekundární struktury nebo povrchy atomů - např. póry a kanály v proteinech? A pokud ano, jak pracné by to bylo?
+  \end{enumerate}
+\end{frame}
+
+\section{Oponents' questions}
+
+\subsection[1]{1}
+
+\begin{frame}{}
+  \begin{block}{Oponents' question 1}
+    Proč jste pro vývoj Mol* pluginu zvolil Vite build tool? Zvažoval jste i jiné alternativy?
+  \end{block}
+  \begin{itemize}
+    \item Mol* repository uses Webpack for bundling
+    \item Vite provides a much faster development server
+    \begin{itemize}
+      \item \textbf{Fast start}
+      \begin{itemize}
+          \item prebundles dependencies using \textit{esbuild}
+          \item serves source code with native ESM modules
+      \end{itemize}
+      \item \textbf{Fast updates}
+      \begin{itemize}
+          \item HMR is performed over native ESM
+          \item leverages HTTP headers to speed up full page reloads
+      \end{itemize}
+    \end{itemize}
+    \item Vite provides optimized production builds with Rollup
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{images/bundle_dev_server.png}
+    \caption{Bundle-based development server
+    \footnote{\url{https://vitejs.dev/guide/why.html}}
+  }
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{images/native_esm_dev_server.png}
+    \caption{Native ESM module development server
+    \footnote{\url{https://vitejs.dev/guide/why.html}}
+  }
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{images/build_tools_experience_ranking.png}
+    \caption{Build tools retention ranking
+      \footnote{\url{https://2022.stateofjs.com}}
+    }
+  \end{figure}
+\end{frame}
+
+\subsection[2]{2}
+
+\begin{frame}
+  \begin{block}{Oponents' question 2}
+    V jakých formátech je možno načíst náboje do Mol*?
+  \end{block}
+  \begin{itemize}
+    \item the Mol* extension only supports the mmCIF format
+    \item it is possible to add support for other formats which have data fields for charges
+    \begin{itemize}
+      \item MOL2
+      \item PQR
+    \end{itemize}
+    \item separate structure and charges files would require custom import controls
+    \begin{itemize}
+      \item this approach was used in the LiteMol extension
+      \item would make the integration into Mol* more difficult
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\subsection[3]{3}
+
+\begin{frame}
+  \begin{block}{Oponents' question 3}
+    Jste schopen využít funkcionalitu pro vizualizaci nábojů v Mol* i pro více přiložených molekul? Pokud ano, mohl byste to ukázat na příkladu? Např. podle nábojů obarvit a přiložit PIN proteiny, které jsou využity jako use case na webu αCharges?
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/alpha-charges-examples.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/pin1-download.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/folder.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/pins-folder.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/pins1.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/pins2.png}
+  \end{figure}
+\end{frame}
+
+\subsection[4]{4}
+
+\begin{frame}
+  \begin{block}{Oponents' question 4}
+    Bylo by možno do budoucna podle nábojů obarvit i jiné objekty než atomy, elementy sekundární struktury nebo povrchy atomů - např. póry a kanály v proteinech? A pokud ano, jak pracné by to bylo?
+  \end{block}
+  \begin{itemize}
+    \item the coloring uses a Location object to determine which color to assign to the given representation element (e.g. atom, residue, surface)
+    \item it would be necessary to create a custom representation (e.g. for pores, channels)
+    \begin{itemize}
+      \item the represenation would need to provide a Location object for each of its elements
+    \end{itemize}
   \end{itemize}
 \end{frame}
   
@@ -94,12 +312,6 @@ text above a block\footnote{a footnote with an \url{https://address.edu}}
 \begin{frame}[t, allowframebreaks]{\bibname}
 \printbibliography[heading=none]
 \end{frame}
-
-% \begin{frame}[plain]
-% \vfill
-% \centerline{Thank You for Your Attention!}
-% \vfill\vfill
-% \end{frame}
 
 \makeoutro
 
