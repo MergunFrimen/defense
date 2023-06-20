@@ -11,8 +11,9 @@
 \usetheme[
   workplace=fi,
   ]{MU}
-  \usepackage{textalpha}
-  \usepackage{subfigure}
+\usepackage{textalpha}
+\usepackage{subfigure}
+\usepackage{wrapfig}
 
 \title[Modern visualization of partial atomic charges in Mol*]{Modern visualization of partial atomic charges in Mol*}
 \subtitle[Short Presentation Subtitle]{Bachelor's thesis defense}
@@ -27,6 +28,12 @@
 \maketitle
 \end{frame}
 
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \vspace{65pt}
+  \hspace{25pt}
+  \includegraphics[height=2.4cm]{images/1cp-lsd.png}
+\end{wrapfigure}
+
 \begin{frame}{Partial atomic charges}
   \begin{itemize}
     \item used to describe the distribution of electrons in a molecule
@@ -36,7 +43,7 @@
       \item pharmacophore modeling
       \item molecular dynamics simulations
     \end{itemize}
-    \item calculation methods:
+      \item calculation methods:
     \begin{itemize}
       \item quantum mechanics - extremely slow
       \item empirical methods - much faster with slight cost to accuracy
@@ -114,6 +121,8 @@
 
 \section[Integration of Mol* viewer]{Integration of Mol* viewer}
 
+\subsection[ACC~II]{ACC~II}
+
 \begin{frame}{Integration of Mol* viewer into ACC~II}
   \begin{itemize}
     \item swapped the LiteMol Viewer for the Mol* Viewer
@@ -124,8 +133,6 @@
     \end{itemize}
   \end{itemize}
 \end{frame}
-
-\subsection[ACC~II]{ACC~II}
 
 \begin{frame}
   \begin{figure}
