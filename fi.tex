@@ -51,18 +51,19 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{SB NCBR software tools}
+\begin{frame}{Empirical methods -- implementations}
   \begin{itemize}
-    \item developed at the Structural bioinformatics research group (SB NCBR) in Brno
-    \item programs for calculating partial atomic charges:
+    \item can contain parameters
+    \item web applications developed at SB NCBR for calculating partial atomic charges:
     \begin{itemize}
-      \item Atomic Charge Calculator II (ACC~II)
+      \item Atomic Charge Calculator II (ACC~II) \footfullcite{racek2020atomic}
       \item αCharges (AlphaCharges)
     \end{itemize}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Motivation}
+\begin{frame}{Motivation \& Thesis goals}
+  \textbf{Motivation:}
   \begin{itemize}
     \item ACC~II uses the LiteMol Viewer
     \begin{itemize}
@@ -73,9 +74,8 @@
       \item no support for partial atomic charges
     \end{itemize}
   \end{itemize}
-\end{frame}
-
-\begin{frame}{Thesis objectives}
+  \vspace{10pt}
+  \textbf{Goals:}
   \begin{enumerate}
     \item study the minimum necessary theory on partial atomic charges
     \item extend the Mol* Viewer to support charge visualization
@@ -86,29 +86,18 @@
     \end{itemize}
   \end{enumerate}
 \end{frame}
-
-\section{Mol* extension}
-
+    
 \begin{frame}{Mol* extension}
   \begin{itemize}
-    \item created custom mmCIF categories for storing partial atomic charges
-    \item extended the Mol* Viewer to support visualization of partial atomic charges
-    \item integrated the extension into the Mol* repository
+    \item created mmCIF categories for storing partial atomic charges
+    \item extended Mol* Viewer to support visualization of partial charges
   \end{itemize}
-\end{frame}
-
-\begin{frame}{}
-  \begin{figure}
-    \includegraphics[width=0.8\textwidth,keepaspectratio]{images/mmcif_erd.png}
-    \caption{Diagram of the custom mmCIF categories}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{}
   \begin{figure}
     \includegraphics[width=\textwidth,keepaspectratio]{images/molstar-use-case.png}
   \end{figure}
 \end{frame}
+
+\section{Mol* extension}
 
 \begin{frame}{}
   \begin{figure}
@@ -119,34 +108,17 @@
   \end{figure}  
 \end{frame}
 
-\section[Integration of Mol* viewer]{Integration of Mol* viewer}
-
-\subsection[ACC~II]{ACC~II}
+\section[]{}
 
 \begin{frame}{Integration of Mol* viewer into ACC~II}
   \begin{itemize}
     \item swapped the LiteMol Viewer for the Mol* Viewer
     \item added support for multiple calculations on one request
-    \begin{itemize}
-      \item updated setup page to allow multiple calculations
-      \item added controls for switching between charge sets
-    \end{itemize}
   \end{itemize}
-\end{frame}
-
-\begin{frame}
   \begin{figure}
-    \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/acc2.png}
+    \includegraphics[width=1\textwidth,height=0.75\textheight,keepaspectratio]{images/acc2.png}
   \end{figure}
 \end{frame}
-
-\begin{frame}
-  \begin{figure}
-    \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/new_setup.png}
-  \end{figure}
-\end{frame}
-
-\subsection[αCharges]{αCharges}
 
 \begin{frame}{Integration of Mol* viewer into αCharges}
   \begin{itemize}
@@ -154,28 +126,24 @@
     \item new coloring by pLDDT confidence score
     \item added a page for describing problematic structures
   \end{itemize}
-\end{frame}
-
-
-\begin{frame}
   \begin{figure}
-    \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/alpha-charges.png}
-  \end{figure}
-  \end{frame}
-
-\begin{frame}
-  \begin{figure}
-    \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/focus.png}
+    \includegraphics[width=1\textwidth,height=0.65\textheight,keepaspectratio]{images/focus.png}
   \end{figure}
   \end{frame}
 
 \section[]{}
 
 \begin{frame}{Nucleic Acids Research paper}
-\begin{figure}
-  \includegraphics[width=1\textwidth,keepaspectratio]{images/paper.png}
-  \caption{αCharges paper published in NAR \cite{schindler2023acharges}}
-\end{figure}
+  \begin{itemize}
+    \item impact factor: 19.160 \textit{(2021)}
+    \item \fullcite{schindler2023acharges}
+    % \item  Ondřej Schindler, Karel Berka, Alessio Cantara, Aleš Křenek, Dominik Tichý et al. “αCharges: partial atomic charges for
+    % AlphaFold structures in high quality”. In: Nucleic Acids Research (2023).
+    % DOI: 10.1093/nar/gkad349.
+  \end{itemize}
+  \begin{figure}
+    \includegraphics[width=0.6\textwidth,keepaspectratio]{images/alpha-charges-visualization.jpeg}
+  \end{figure}
 \end{frame}
 
 \begin{frame}{Conclusion}
@@ -187,23 +155,12 @@
   \end{itemize}
 \end{frame}
 
-\section{}
-
-\begin{frame}{Oponents' questions}
-  \begin{enumerate}
-    \item Proč jste pro vývoj Mol* pluginu zvolil Vite build tool? Zvažoval jste i jiné alternativy?
-    \item V jakých formátech je možno načíst náboje do Mol*?
-    \item Jste schopen využít funkcionalitu pro vizualizaci nábojů v Mol* i pro více přiložených molekul? Pokud ano, mohl byste to ukázat na příkladu? Např. podle nábojů obarvit a přiložit PIN proteiny, které jsou využity jako use case na webu αCharges?
-    \item Bylo by možno do budoucna podle nábojů obarvit i jiné objekty než atomy, elementy sekundární struktury nebo povrchy atomů - např. póry a kanály v proteinech? A pokud ano, jak pracné by to bylo?
-  \end{enumerate}
-\end{frame}
-
-\section{Oponents' questions}
+\section{Otázky oponenta}
 
 \subsection[1]{1}
 
 \begin{frame}{}
-  \begin{block}{Oponents' question 1}
+  \begin{block}{Otázky oponenta 1}
     Proč jste pro vývoj Mol* pluginu zvolil Vite build tool? Zvažoval jste i jiné alternativy?
   \end{block}
   \begin{itemize}
@@ -225,47 +182,20 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \begin{figure}
-    \includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{images/bundle_dev_server.png}
-    \caption{Bundle-based development server
-    \footnote{\url{https://vitejs.dev/guide/why.html}}
-  }
-  \end{figure}
-\end{frame}
-
-\begin{frame}
-  \begin{figure}
-    \includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{images/native_esm_dev_server.png}
-    \caption{Native ESM module development server
-    \footnote{\url{https://vitejs.dev/guide/why.html}}
-  }
-  \end{figure}
-\end{frame}
-
-\begin{frame}
-  \begin{figure}
-    \includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{images/build_tools_experience_ranking.png}
-    \caption{Build tools retention ranking
-      \footnote{\url{https://2022.stateofjs.com}}
-    }
-  \end{figure}
-\end{frame}
-
 \subsection[2]{2}
 
 \begin{frame}
-  \begin{block}{Oponents' question 2}
+  \begin{block}{Otázky oponenta 2}
     V jakých formátech je možno načíst náboje do Mol*?
   \end{block}
   \begin{itemize}
-    \item the Mol* extension only supports the mmCIF format
-    \item it is possible to add support for other formats which have data fields for charges
+    \item Mol* rozšíření umožňuje načíst náboje pouze v mmCIF formátu
+    \item je možné přidat podporu pro další formáty, které mají datová pole pro náboje
     \begin{itemize}
       \item MOL2
       \item PQR
     \end{itemize}
-    \item separate structure and charges files would require custom import controls
+    \item 
     \begin{itemize}
       \item this approach was used in the LiteMol extension
       \item would make the integration into Mol* more difficult
@@ -276,10 +206,47 @@
 \subsection[3]{3}
 
 \begin{frame}
-  \begin{block}{Oponents' question 3}
+  \begin{block}{Otázky oponenta 3}
     Jste schopen využít funkcionalitu pro vizualizaci nábojů v Mol* i pro více přiložených molekul? Pokud ano, mohl byste to ukázat na příkladu? Např. podle nábojů obarvit a přiložit PIN proteiny, které jsou využity jako use case na webu αCharges?
   \end{block}
+  \begin{itemize}
+    \item ano, struktury s vypočítanými náboji z αCharges lze nahrát do Mol* a v něm provést přiložení
+  \end{itemize}
 \end{frame}
+
+\begin{frame}{}
+  \begin{figure}
+    \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/pins2.png}
+  \end{figure}
+\end{frame}
+
+\subsection[4]{4}
+
+\begin{frame}
+  \begin{block}{Otázky oponenta 4}
+    Bylo by možno do budoucna podle nábojů obarvit i jiné objekty než atomy, elementy sekundární struktury nebo povrchy atomů - např. póry a kanály v proteinech? A pokud ano, jak pracné by to bylo?
+  \end{block}
+  \begin{itemize}
+    \item obarvování používá Location objekt, podle kterého se určí jakou barvu obarvit daný prvek reprezentace (např. atom, residue, surface)
+    \item bylo by nutné vytvořit novou 3D reprezentaci (např. pro póry, kanály)
+    \begin{itemize}
+      \item tato reprezentace by musela poskytnout Location objekty pro každou část póru/kanálu
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\section[Bonus slides]{Bonus slides}
+
+\subsection[mmCIF categories]{mmCIF categories}
+
+\begin{frame}{}
+  \begin{figure}
+    \includegraphics[width=0.8\textwidth,keepaspectratio]{images/mmcif_erd.png}
+    \caption{Diagram of the custom mmCIF categories}
+  \end{figure}
+\end{frame}
+
+\subsection[PINS]{PINS}
 
 \begin{frame}
   \begin{figure}
@@ -317,24 +284,33 @@
   \end{figure}
 \end{frame}
 
-\subsection[4]{4}
+\subsection[Vite]{Vite}
 
 \begin{frame}
-  \begin{block}{Oponents' question 4}
-    Bylo by možno do budoucna podle nábojů obarvit i jiné objekty než atomy, elementy sekundární struktury nebo povrchy atomů - např. póry a kanály v proteinech? A pokud ano, jak pracné by to bylo?
-  \end{block}
-  \begin{itemize}
-    \item the coloring uses a Location object to determine which color to assign to the given representation element (e.g. atom, residue, surface)
-    \item it would be necessary to create a custom representation (e.g. for pores, channels)
-    \begin{itemize}
-      \item the represenation would need to provide a Location object for each of its elements
-    \end{itemize}
-  \end{itemize}
+  \begin{figure}
+    \includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{images/bundle_dev_server.png}
+    \caption{Bundle-based development server
+    \footnote{\url{https://vitejs.dev/guide/why.html}}
+  }
+  \end{figure}
 \end{frame}
-  
-\section{\bibname}
-\begin{frame}[t, allowframebreaks]{\bibname}
-\printbibliography[heading=none]
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{images/native_esm_dev_server.png}
+    \caption{Native ESM module development server
+    \footnote{\url{https://vitejs.dev/guide/why.html}}
+  }
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{images/build_tools_experience_ranking.png}
+    \caption{Build tools retention ranking
+      \footnote{\url{https://2022.stateofjs.com}}
+    }
+  \end{figure}
 \end{frame}
 
 \makeoutro
