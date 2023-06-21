@@ -53,7 +53,6 @@
 
 \begin{frame}{Empirical methods -- implementations}
   \begin{itemize}
-    \item can contain parameters
     \item web applications developed at SB NCBR for calculating partial atomic charges:
     \begin{itemize}
       \item Atomic Charge Calculator II (ACC~II) \footfullcite{racek2020atomic}
@@ -65,7 +64,7 @@
 \begin{frame}{Motivation \& Thesis goals}
   \textbf{Motivation:}
   \begin{itemize}
-    \item ACC~II uses the LiteMol Viewer
+    \item both ACC~II and αCharges use the LiteMol Viewer
     \begin{itemize}
       \item no longer maintained $\rightarrow$ needs to be replaced
     \end{itemize}
@@ -112,7 +111,7 @@
 
 \begin{frame}{Integration of Mol* viewer into ACC~II}
   \begin{itemize}
-    \item swapped the LiteMol Viewer for the Mol* Viewer
+    \item replaced the LiteMol Viewer with the Mol* Viewer
     \item added support for multiple calculations on one request
   \end{itemize}
   \begin{figure}
@@ -137,9 +136,6 @@
   \begin{itemize}
     \item impact factor: 19.160 \textit{(2021)}
     \item \fullcite{schindler2023acharges}
-    % \item  Ondřej Schindler, Karel Berka, Alessio Cantara, Aleš Křenek, Dominik Tichý et al. “αCharges: partial atomic charges for
-    % AlphaFold structures in high quality”. In: Nucleic Acids Research (2023).
-    % DOI: 10.1093/nar/gkad349.
   \end{itemize}
   \begin{figure}
     \includegraphics[width=0.6\textwidth,keepaspectratio]{images/alpha-charges-visualization.jpeg}
@@ -160,7 +156,7 @@
 \subsection[1]{1}
 
 \begin{frame}{}
-  \begin{block}{Otázka oponenta 1}
+  \begin{block}{Otázky oponenta 1}
     Proč jste pro vývoj Mol* pluginu zvolil Vite build tool? Zvažoval jste i jiné alternativy?
   \end{block}
   \begin{itemize}
@@ -181,11 +177,11 @@
 \subsection[2]{2}
 
 \begin{frame}
-  \begin{block}{Otázka oponenta 2}
+  \begin{block}{Otázky oponenta 2}
     V jakých formátech je možno načíst náboje do Mol*?
   \end{block}
   \begin{itemize}
-    \item Mol* umožňuje načíst náboje pouze v mmCIF formátu
+    \item Mol* Viewer umožňuje načíst náboje pouze v mmCIF formátu
     \item je možné přidat podporu pro další formáty, které mají datová pole pro náboje
     \begin{itemize}
       \item MOL2
@@ -193,8 +189,8 @@
     \end{itemize}
     \item lze také oddělit strukturu od nábojů a načítat je zvlášť
     \begin{itemize}
-      \item vyžadovalo by to vytvořit importy pro náboje 
-      \item tento přístup byl použit v rozšíření LiteMol
+      \item vyžadovalo by to vytvořit nástroje na importování nábojů 
+      \item tento přístup byl použit v rozšíření LiteMol Vieweru
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -202,7 +198,7 @@
 \subsection[3]{3}
 
 \begin{frame}
-  \begin{block}{Otázka oponenta 3}
+  \begin{block}{Otázky oponenta 3}
     Jste schopen využít funkcionalitu pro vizualizaci nábojů v Mol* i pro více přiložených molekul? Pokud ano, mohl byste to ukázat na příkladu? Např. podle nábojů obarvit a přiložit PIN proteiny, které jsou využity jako use case na webu αCharges?
   \end{block}
   \begin{itemize}
@@ -219,11 +215,11 @@
 \subsection[4]{4}
 
 \begin{frame}
-  \begin{block}{Otázka oponenta 4}
+  \begin{block}{Otázky oponenta 4}
     Bylo by možno do budoucna podle nábojů obarvit i jiné objekty než atomy, elementy sekundární struktury nebo povrchy atomů - např. póry a kanály v proteinech? A pokud ano, jak pracné by to bylo?
   \end{block}
   \begin{itemize}
-    \item obarvování používá Location objekt, podle kterého se určí jakou barvu obarvit daný prvek reprezentace (např. atom, residue, surface)
+    \item obarvování používá Location objekt, podle kterého se určí jakou barvu obarvit daný prvek reprezentace (např. atom, vazbu)
     \item bylo by nutné vytvořit novou 3D reprezentaci (např. pro póry, kanály)
     \begin{itemize}
       \item tato reprezentace by musela poskytnout Location objekty pro každou část póru/kanálu
