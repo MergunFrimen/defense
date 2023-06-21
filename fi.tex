@@ -160,45 +160,41 @@
 \subsection[1]{1}
 
 \begin{frame}{}
-  \begin{block}{Otázky oponenta 1}
+  \begin{block}{Otázka oponenta 1}
     Proč jste pro vývoj Mol* pluginu zvolil Vite build tool? Zvažoval jste i jiné alternativy?
   \end{block}
   \begin{itemize}
-    \item Mol* repository uses Webpack for bundling
-    \item Vite provides a much faster development server
-    \begin{itemize}
-      \item \textbf{Fast start}
-      \begin{itemize}
-          \item prebundles dependencies using \textit{esbuild}
-          \item serves source code with native ESM modules
-      \end{itemize}
-      \item \textbf{Fast updates}
-      \begin{itemize}
-          \item HMR is performed over native ESM
-          \item leverages HTTP headers to speed up full page reloads
-      \end{itemize}
-    \end{itemize}
-    \item Vite provides optimized production builds with Rollup
+    \item Mol* používá Webpack
+    \item Vite poskytuje rychlejší development server a optimalizované produkční buildy
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{images/build_tools_experience_ranking.png}
+    \caption{Retence build nástrojů v průzkumu State of JS 2022
+      \footnote{\url{https://2022.stateofjs.com}}
+    }
+  \end{figure}
 \end{frame}
 
 \subsection[2]{2}
 
 \begin{frame}
-  \begin{block}{Otázky oponenta 2}
+  \begin{block}{Otázka oponenta 2}
     V jakých formátech je možno načíst náboje do Mol*?
   \end{block}
   \begin{itemize}
-    \item Mol* rozšíření umožňuje načíst náboje pouze v mmCIF formátu
+    \item Mol* umožňuje načíst náboje pouze v mmCIF formátu
     \item je možné přidat podporu pro další formáty, které mají datová pole pro náboje
     \begin{itemize}
       \item MOL2
       \item PQR
     \end{itemize}
-    \item 
+    \item lze také oddělit strukturu od nábojů a načítat je zvlášť
     \begin{itemize}
-      \item this approach was used in the LiteMol extension
-      \item would make the integration into Mol* more difficult
+      \item vyžadovalo by to vytvořit importy pro náboje 
+      \item tento přístup byl použit v rozšíření LiteMol
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -206,7 +202,7 @@
 \subsection[3]{3}
 
 \begin{frame}
-  \begin{block}{Otázky oponenta 3}
+  \begin{block}{Otázka oponenta 3}
     Jste schopen využít funkcionalitu pro vizualizaci nábojů v Mol* i pro více přiložených molekul? Pokud ano, mohl byste to ukázat na příkladu? Např. podle nábojů obarvit a přiložit PIN proteiny, které jsou využity jako use case na webu αCharges?
   \end{block}
   \begin{itemize}
@@ -223,7 +219,7 @@
 \subsection[4]{4}
 
 \begin{frame}
-  \begin{block}{Otázky oponenta 4}
+  \begin{block}{Otázka oponenta 4}
     Bylo by možno do budoucna podle nábojů obarvit i jiné objekty než atomy, elementy sekundární struktury nebo povrchy atomů - např. póry a kanály v proteinech? A pokud ano, jak pracné by to bylo?
   \end{block}
   \begin{itemize}
@@ -286,6 +282,22 @@
 
 \subsection[Vite]{Vite}
 
+\begin{frame}{}
+  \begin{itemize}
+    \item \textbf{Fast start}
+    \begin{itemize}
+        \item prebundles dependencies using \textit{esbuild}
+        \item serves source code with native ESM modules
+    \end{itemize}
+    \item \textbf{Fast updates}
+    \begin{itemize}
+        \item HMR is performed over native ESM
+        \item leverages HTTP headers to speed up full page reloads
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+
 \begin{frame}
   \begin{figure}
     \includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{images/bundle_dev_server.png}
@@ -301,15 +313,6 @@
     \caption{Native ESM module development server
     \footnote{\url{https://vitejs.dev/guide/why.html}}
   }
-  \end{figure}
-\end{frame}
-
-\begin{frame}
-  \begin{figure}
-    \includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{images/build_tools_experience_ranking.png}
-    \caption{Build tools retention ranking
-      \footnote{\url{https://2022.stateofjs.com}}
-    }
   \end{figure}
 \end{frame}
 
