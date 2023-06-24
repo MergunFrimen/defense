@@ -15,6 +15,7 @@
 \usepackage{subfigure}
 \usepackage{wrapfig}
 \usepackage{tikz}
+\usepackage{appendixnumberbeamer}
 
 \title[Visualization of partial charges in Mol*]{Modern visualization of partial atomic charges in Mol*}
 \subtitle[Short Presentation Subtitle]{Bachelor's thesis defense}
@@ -91,7 +92,7 @@
 \begin{frame}{Mol* extension}
   \begin{itemize}
     \item created mmCIF categories for storing partial atomic charges
-    \item extended Mol* Viewer to support visualization of partial charges
+    \item extended the Mol* Viewer to support visualization of charges
   \end{itemize}
   \begin{figure}
     \includegraphics[width=\textwidth,keepaspectratio]{images/molstar-use-case.png}
@@ -147,7 +148,7 @@
 \begin{frame}{Conclusion}
   \begin{itemize}
     \item created the Mol* extension for visualizing partial atomic charges
-    \item integrated the updated Mol* viewer into ACC~II and αCharges
+    \item integrated the updated Mol* Viewer into ACC~II and αCharges
     \item extended the capabilities of ACC~II to support multiple calculations on one request
     \item contributed with the work to the αCharges paper
   \end{itemize}
@@ -158,11 +159,13 @@
   \clearpage
 \end{frame}
 
+\appendix
+
 \section{Otázky oponenta}
 
 \subsection[1]{1}
 
-\begin{frame}[noframenumbering]
+\begin{frame}
   \begin{block}{Otázky oponenta 1}
     Proč jste pro vývoj Mol* pluginu zvolil Vite build tool? Zvažoval jste i jiné alternativy?
   \end{block}
@@ -172,7 +175,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}[noframenumbering]
+\begin{frame}
   \begin{figure}
     \includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{images/build_tools_experience_ranking.png}
     \caption{Retence build nástrojů v průzkumu State of JS 2022
@@ -183,7 +186,7 @@
 
 \subsection[2]{2}
 
-\begin{frame}[noframenumbering]
+\begin{frame}
   \begin{block}{Otázky oponenta 2}
     V jakých formátech je možno načíst náboje do Mol*?
   \end{block}
@@ -204,7 +207,7 @@
 
 \subsection[3]{3}
 
-\begin{frame}[noframenumbering]
+\begin{frame}
   \begin{block}{Otázky oponenta 3}
     Jste schopen využít funkcionalitu pro vizualizaci nábojů v Mol* i pro více přiložených molekul? Pokud ano, mohl byste to ukázat na příkladu? Např. podle nábojů obarvit a přiložit PIN proteiny, které jsou využity jako use case na webu αCharges?
   \end{block}
@@ -213,7 +216,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}[noframenumbering]
+\begin{frame}
   \begin{figure}
     \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/pins2.png}
   \end{figure}
@@ -221,7 +224,7 @@
 
 \subsection[4]{4}
 
-\begin{frame}[noframenumbering]
+\begin{frame}
   \begin{block}{Otázky oponenta 4}
     Bylo by možno do budoucna podle nábojů obarvit i jiné objekty než atomy, elementy sekundární struktury nebo povrchy atomů - např. póry a kanály v proteinech? A pokud ano, jak pracné by to bylo?
   \end{block}
@@ -240,7 +243,7 @@
 
 \subsection[mmCIF categories]{mmCIF categories}
 
-\begin{frame}[noframenumbering]
+\begin{frame}
   \begin{figure}
     \includegraphics[width=0.8\textwidth,keepaspectratio]{images/mmcif_erd.png}
     \caption{Diagram of the custom mmCIF categories}
@@ -249,37 +252,37 @@
 
 \subsection[PINS]{PINS}
 
-\begin{frame}[noframenumbering]
+\begin{frame}
   \begin{figure}
     \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/alpha-charges-examples.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}[noframenumbering]
+\begin{frame}
   \begin{figure}
     \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/pin1-download.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}[noframenumbering]
+\begin{frame}
   \begin{figure}
     \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/folder.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}[noframenumbering]
+\begin{frame}
   \begin{figure}
     \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/pins-folder.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}[noframenumbering]
+\begin{frame}
   \begin{figure}
     \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/pins1.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}[noframenumbering]
+\begin{frame}
   \begin{figure}
     \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/pins2.png}
   \end{figure}
@@ -287,7 +290,7 @@
 
 \subsection[Vite]{Vite}
 
-\begin{frame}[noframenumbering]
+\begin{frame}
   \begin{itemize}
     \item \textbf{Fast start}
     \begin{itemize}
@@ -303,7 +306,7 @@
 \end{frame}
 
 
-\begin{frame}[noframenumbering]
+\begin{frame}
   \begin{figure}
     \includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{images/bundle_dev_server.png}
     \caption{Bundle-based development server
@@ -312,7 +315,7 @@
   \end{figure}
 \end{frame}
 
-\begin{frame}[noframenumbering]
+\begin{frame}
   \begin{figure}
     \includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{images/native_esm_dev_server.png}
     \caption{Native ESM module development server
@@ -322,5 +325,6 @@
 \end{frame}
 
 \makeoutro
+\addtocounter{framenumber}{-1}
 
 \end{document}
