@@ -14,10 +14,11 @@
 \usepackage{textalpha}
 \usepackage{subfigure}
 \usepackage{wrapfig}
+\usepackage{tikz}
 
-\title[Modern visualization of partial atomic charges in Mol*]{Modern visualization of partial atomic charges in Mol*}
+\title[Visualization of partial charges in Mol*]{Modern visualization of partial atomic charges in Mol*}
 \subtitle[Short Presentation Subtitle]{Bachelor's thesis defense}
-\author[Dominik Tichý]{Dominik Tichý}
+\author[D. Tichý]{Dominik Tichý\texorpdfstring{\\}{, }Supervisor: RNDr. Tomáš Raček, Ph.D.}
 \institute[FI MU]{Faculty of Informatics, Masaryk University}
 \date{June 30, 2023}
 \subject{Presentation Subject}
@@ -25,18 +26,18 @@
 \begin{document}
 
 \begin{frame}[plain]
-\maketitle
+  \maketitle
 \end{frame}
 
 \begin{wrapfigure}{r}{0.5\textwidth}
-  \vspace{65pt}
-  \hspace{25pt}
-  \includegraphics[height=2.4cm]{images/1cp-lsd.png}
+  \vspace{55pt}
+  \hspace{45pt}
+  \includegraphics[height=3cm]{images/charges-numbers.png}
 \end{wrapfigure}
 
 \begin{frame}{Partial atomic charges}
   \begin{itemize}
-    \item used to describe the distribution of electrons in a molecule
+    \item real numbers describing the distribution of electron density among atoms in a molecule
     \item applications:
     \begin{itemize}
       \item molecular docking
@@ -53,11 +54,12 @@
 
 \begin{frame}{Empirical methods -- implementations}
   \begin{itemize}
-    \item web applications developed at SB NCBR for calculating partial atomic charges:
+    \item web applications for calculating partial atomic charges:
     \begin{itemize}
       \item Atomic Charge Calculator II (ACC~II) \footfullcite{racek2020atomic}
-      \item αCharges (AlphaCharges)
+      \item αCharges (AlphaCharges) \footfullcite{schindler2023acharges2}
     \end{itemize}
+    \item developed by the Structural Bioinformatics research group at the National Centre for Biomolecular Research 
   \end{itemize}
 \end{frame}
 
@@ -76,9 +78,9 @@
   \vspace{10pt}
   \textbf{Goals:}
   \begin{enumerate}
-    \item study the minimum necessary theory on partial atomic charges
+    \item study the necessary theory on partial atomic charges
     \item extend the Mol* Viewer to support charge visualization
-    \item integrate updated Mol* Viewer into:
+    \item integrate the updated Mol* Viewer into:
     \begin{itemize}
       \item ACC~II
       \item αCharges
@@ -101,9 +103,10 @@
 \begin{frame}{}
   \begin{figure}
     \centering
-    \subfigure[Ball and stick]{\label{fig:partial_charges_color_theme-bas}\includegraphics[width=0.45\textwidth]{images/1F162-bas.png}}
-    \subfigure[Surface]{\label{fig:partial_charges_color_theme-surface}\includegraphics[width=0.45\textwidth]{images/1F16-surface.png}}
-    \subfigure[Cartoon]{\label{fig:partial_charges_color_theme-cartoon}\includegraphics[width=0.45\textwidth]{images/1F16-cartoon.png}}
+    \subfigure[Ball and stick]{\includegraphics[width=0.45\textwidth]{images/1F162-bas.png}}
+    \subfigure[Surface]{\includegraphics[width=0.45\textwidth]{images/1F16-surface.png}}
+    \subfigure[Cartoon]{\includegraphics[width=0.45\textwidth]{images/1F16-cartoon.png}}
+    \subfigure[Color gradients]{\includegraphics[width=0.45\textwidth]{images/color_gradients.png}}
   \end{figure}  
 \end{frame}
 
@@ -111,22 +114,21 @@
 
 \begin{frame}{Integration of Mol* viewer into ACC~II}
   \begin{itemize}
-    \item replaced the LiteMol Viewer with the Mol* Viewer
+    \item replaced the the LiteMol Viewer with the Mol* Viewer
     \item added support for multiple calculations on one request
   \end{itemize}
   \begin{figure}
-    \includegraphics[width=1\textwidth,height=0.75\textheight,keepaspectratio]{images/acc2.png}
+    \includegraphics[width=1\textwidth,height=0.78\textheight,keepaspectratio]{images/acc2.png}
   \end{figure}
 \end{frame}
 
 \begin{frame}{Integration of Mol* viewer into αCharges}
   \begin{itemize}
-    \item Mol* Viewer is used for displaying the results
-    \item new coloring by pLDDT confidence score
-    \item added a page for describing problematic structures
+    \item the Mol* Viewer is used for displaying the results
+    \item added a page for describing problematic atoms
   \end{itemize}
   \begin{figure}
-    \includegraphics[width=1\textwidth,height=0.65\textheight,keepaspectratio]{images/focus.png}
+    \includegraphics[width=1\textwidth,height=0.75\textheight,keepaspectratio]{images/focus.png}
   \end{figure}
   \end{frame}
 
@@ -134,7 +136,7 @@
 
 \begin{frame}{Nucleic Acids Research paper}
   \begin{itemize}
-    \item impact factor: 19.160 \textit{(2021)}
+    \item the current impact factor of the journal is \textbf{19.160}
     \item \fullcite{schindler2023acharges}
   \end{itemize}
   \begin{figure}
@@ -144,18 +146,23 @@
 
 \begin{frame}{Conclusion}
   \begin{itemize}
-    \item created an Mol* extension for visualizing partial atomic charges
-    \item integrated the updated Mol* viewer into the ACC~II and αCharges web applications
+    \item created the Mol* extension for visualizing partial atomic charges
+    \item integrated the updated Mol* viewer into ACC~II and αCharges
     \item extended the capabilities of ACC~II to support multiple calculations on one request
     \item contributed with the work to the αCharges paper
   \end{itemize}
+\end{frame}
+
+\begin{frame}[plain,noframenumbering]
+  \tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{images/thank-you.jpg}};
+  \clearpage
 \end{frame}
 
 \section{Otázky oponenta}
 
 \subsection[1]{1}
 
-\begin{frame}{}
+\begin{frame}[noframenumbering]
   \begin{block}{Otázky oponenta 1}
     Proč jste pro vývoj Mol* pluginu zvolil Vite build tool? Zvažoval jste i jiné alternativy?
   \end{block}
@@ -165,7 +172,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[noframenumbering]
   \begin{figure}
     \includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{images/build_tools_experience_ranking.png}
     \caption{Retence build nástrojů v průzkumu State of JS 2022
@@ -176,7 +183,7 @@
 
 \subsection[2]{2}
 
-\begin{frame}
+\begin{frame}[noframenumbering]
   \begin{block}{Otázky oponenta 2}
     V jakých formátech je možno načíst náboje do Mol*?
   \end{block}
@@ -197,7 +204,7 @@
 
 \subsection[3]{3}
 
-\begin{frame}
+\begin{frame}[noframenumbering]
   \begin{block}{Otázky oponenta 3}
     Jste schopen využít funkcionalitu pro vizualizaci nábojů v Mol* i pro více přiložených molekul? Pokud ano, mohl byste to ukázat na příkladu? Např. podle nábojů obarvit a přiložit PIN proteiny, které jsou využity jako use case na webu αCharges?
   \end{block}
@@ -206,7 +213,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{}
+\begin{frame}[noframenumbering]
   \begin{figure}
     \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/pins2.png}
   \end{figure}
@@ -214,16 +221,18 @@
 
 \subsection[4]{4}
 
-\begin{frame}
+\begin{frame}[noframenumbering]
   \begin{block}{Otázky oponenta 4}
     Bylo by možno do budoucna podle nábojů obarvit i jiné objekty než atomy, elementy sekundární struktury nebo povrchy atomů - např. póry a kanály v proteinech? A pokud ano, jak pracné by to bylo?
   \end{block}
   \begin{itemize}
-    \item obarvování používá Location objekt, podle kterého se určí jakou barvu obarvit daný prvek reprezentace (např. atom, vazbu)
-    \item bylo by nutné vytvořit novou 3D reprezentaci (např. pro póry, kanály)
-    \begin{itemize}
-      \item tato reprezentace by musela poskytnout Location objekty pro každou část póru/kanálu
-    \end{itemize}
+    \item ano, je to možné
+    \item časový odhad: pár týdnů
+    % \item obarvování používá Location objekt, podle kterého se určí jakou barvu obarvit daný prvek reprezentace (např. atom, vazbu)
+    % \item bylo by nutné vytvořit novou 3D reprezentaci (např. pro póry, kanály)
+    % \begin{itemize}
+    %   \item tato reprezentace by musela poskytnout Location objekty pro každou část póru/kanálu
+    % \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -231,7 +240,7 @@
 
 \subsection[mmCIF categories]{mmCIF categories}
 
-\begin{frame}{}
+\begin{frame}[noframenumbering]
   \begin{figure}
     \includegraphics[width=0.8\textwidth,keepaspectratio]{images/mmcif_erd.png}
     \caption{Diagram of the custom mmCIF categories}
@@ -240,37 +249,37 @@
 
 \subsection[PINS]{PINS}
 
-\begin{frame}
+\begin{frame}[noframenumbering]
   \begin{figure}
     \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/alpha-charges-examples.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[noframenumbering]
   \begin{figure}
     \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/pin1-download.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[noframenumbering]
   \begin{figure}
     \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/folder.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[noframenumbering]
   \begin{figure}
     \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/pins-folder.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[noframenumbering]
   \begin{figure}
     \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/pins1.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[noframenumbering]
   \begin{figure}
     \includegraphics[width=1\textwidth,height=\textheight,keepaspectratio]{images/pins2.png}
   \end{figure}
@@ -278,7 +287,7 @@
 
 \subsection[Vite]{Vite}
 
-\begin{frame}{}
+\begin{frame}[noframenumbering]
   \begin{itemize}
     \item \textbf{Fast start}
     \begin{itemize}
@@ -294,7 +303,7 @@
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[noframenumbering]
   \begin{figure}
     \includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{images/bundle_dev_server.png}
     \caption{Bundle-based development server
@@ -303,7 +312,7 @@
   \end{figure}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[noframenumbering]
   \begin{figure}
     \includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{images/native_esm_dev_server.png}
     \caption{Native ESM module development server
