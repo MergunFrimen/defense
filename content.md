@@ -1,7 +1,25 @@
 # Content of my presentation
 
-When two atoms form a chemical bond, they share electrons between themselves.
-However, these electons are not uniformly distributed between the two atoms.
-Some atoms might have a higher electronegativity than others, and therefore they will attract more electrons.
-This uneven distribution of electrons influences the physical properties of the molecule and determines how it interacts with other molecules.
-One way of describing this uneven distribution of electron density is by assigning partial atomic charges to individual atoms within the molecule
+Good afternoon. My name is Dominik Tichý and I am a student of the Faculty of Informatics at Masaryk University. Today I would like to present you my bachelor thesis called "Modern visualization of partial atomic charges in Mol*", which I have been working on for the last year under the supervision of RNDr. Tomáš Raček, Ph.D.
+
+Partial atomic charges a real numbers which are assigned to each atom within a molecule and together they describe the distribution of electron density among the atoms of the molecule. Partial atomic charges find many applications in the field of computational chemistry, for example, in molecular docking or pharmacophore modeling. It is important to note that partial atomic charges are only a theoretical concept and it is therefore impossible to measure them experimentally. It is however possible to calculate them using quantum mechanics methods. Quantum mechanics methods produce the most accurate calculations however they are extremely slow and computationally expensive and are therefore used only for small molecules. For larger molecules researchers use empirical methods. Empirical methods are much faster when compared to quantum mechanics methods although they produce slightly less accurate results.
+
+There exist various tools, programs, and web applications for calculating partial atomic charges using empirical methods. An example of two of them are the following web applications - Atomic Charge Calculator and Alpha Charges - both of which were developed at the Structural bioinformatics research group at the National Center for biomolecular research.
+
+Both of these web applications use a visualizer called Litemol Viewer for visualizing the results of each calculation - namely for visualizing the structure colored by the partial atomic charges which were calculated for the given structure. The Litemol viewer is however no longer maintained and it was necessary to replace it with it's modern replacement, the Mol* viewer. However the Mol* viewer did not have support for visualizing partial atomic charges. This lack in functionality was the main driver behind this bachelor thesis.
+
+This brings us to the main goals of this thesis. Firstly it was necessary to study the theory regarding partial atomic charges in order to get a better understanding of them. Secondly, the Mol* viewer needed to be extended with suppport for visualizing partial atomic charges. And lastly, the updated Mol* viewer needed to be integrated into the afformentioned web applications.
+
+Before we could implement the Mol* extension, it was necessary to come up with a way to store the structure and charge data in one file. We settled on using the mmCIF file format for this purpose. The mmCIF acronym stands for macromolecular crystalographic information file and is the most widely used chemical file format in computational chemistry. We extended the mmCIF format to include two new data field for storing data about partial atomic charges. With this approach if the end user wants to visualize the partial atomic charges they simply need to add the charges to the mmCIF file containing the structure data, then they simply need to drag and drop this file into the Mol* Viewer which automatically visualizes the structure and colors it by partial atomic charges.
+
+Here are some examples of the coloring by partial atomic charges for different 3D representations of the same molecule. Notice that the coloring uses two color gradients. For negative charges the visualization uses a red-to-white color gradient and for positive charges it uses a white-to-blue color gradient.
+
+After implementing the Mol* extension it was necessary to integrate it into the Atomic Charges Calculator and Alpha Charges web applications. The integration with Atomic Charge Calculator was straightforward and only required to simply swap out the Litemol Viewer for the updated Mol* Viewer. Additionally the web application received a new feature which allows the end user to calculate charges for multiple calculation methods on one request. The results of these calculations are combined on the backend server and on the frontend the user can switch between them using the highlighted UI controls.
+
+Since both web applications share the same architecture, the integration of the Mol* Viewer into AlphaCharges was nearly identical to Atomic Charge Calculator. The AlphaCharges application also received a new feature and this time it was a new page to which the user is redirected when the structure file which was used in the calculation is faulty. On this page the user is presented with an error message that lists the problematic atoms which caused the faulty calcualtion and lists additional information for each of them in a pop up text. The user can additionally click on the name of each atom listed in the error message which will trigger a zoom and focus on the atom in the Mol* Viewer as can be seen in this example.
+
+Finally, the work done on the AlphaCharges web application had a direct contribution to a research paper which was published in the Nucleic Acids Research journal which is a biomolecular journal with a impact factor of over 19.
+
+To summarize my work, I have created the Mol* extension for visualizing partial atomic charges, I have integrated the updated Mol* viewer into the Atomic Charge Calculator and AlphaCharges web applications, I have additionally extended the capabilities of both web applications, and lastly I have directly contributed with this work to a scientific research paper.
+
+Thank you for your attention.
