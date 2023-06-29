@@ -1,12 +1,8 @@
 Good afternoon. My name is Dominik Tichý and today I would like to present to you the results of my bachelor's thesis work. The topic of my thesis is "Modern visualization of partial atomic charges in Molstar".
 
----
-
 Partial atomic charges are real numbers that are assigned to each atom within a molecule and together these charges describe the distribution of electron density among the atoms of a molecule. Partial atomic charges find many applications in the field of computational chemistry, for example, they are used in molecular docking or pharmacophore modeling.
 
 It is important to note that partial atomic charges are only a theoretical concept and it is therefore impossible to measure them experimentally. It is however possible to calculate them using various calculation methods, such as quantum mechanical methods or empirical methods. Quantum mechanical methods produce the most accurate charges, however, they are extremely slow and computationally very expensive. On the other hand, empirical methods are significantly faster since the charges are only approxiamated.
-
----
 
 Empirical methods are used in various tools, programs, and web applications for calculating partial atomic charges. Two examples of web applications are - Atomic Charge Calculator and Alpha Charges - both of which were developed by the Structural bioinformatics research group at the National Center for biomolecular research at the Faculty of Science at Masaryk University.
 
@@ -14,27 +10,19 @@ Both of these web applications use a visualizer called Litemol Viewer for visual
 
 The goal of this thesis was therefore to to extend the Molstar viewer with suppport for visualizing the partial atomic charges and secondly to then integrate the updated Molstar viewer into the Atomic Charge Calculator and AlphaCharges web applications.
 
----
-
 Before we could implement the Molstar extension, it was necessary to come up with a way to store the structure and charge data in one file. For this purpose we decided to use the mmCIF file format. The mmCIF acronym stands for macromolecular crystalographic information file and it is the most advanced and most widely used chemical file format in the field of computational chemistry. We extended the mmCIF format by introducing two new data fields, also reffered to as mmCIF categories, for storing data about the partial atomic charges.
 
 After creating the mmCIF categories, we created the extension for visualizing partial atomic charges and integrated it into the Molstar Viewer. If a user wants to use this extension to visualize partial atomic charges of a structure, they simply need to add the structure data and the charge data into one mmCIF file with the appropriate mmCIF categories, which they then simply need to drag and drop into the Molstar Viewer. The Molstar Viewer will then automatically visualize the structure and color it by the partial atomic charges.
 
 Here are some examples of the coloring by partial atomic charges for three different 3D representations of the same molecule. Notice that the coloring uses two different color gradients. For negative charges the visualization uses a red-to-white color gradient and for positive charges it uses a white-to-blue color gradient.
 
----
-
 After implementing the Molstar extension, it was necessary to integrate it into the Atomic Charge Calculator and Alpha Charges web applications. The integration with the Atomic Charge Calculator was straightforward and only required to swap out the Litemol Viewer for the updated Molstar Viewer and to reconnect the UI controls of the web application to the controls of the Molstar Viewer.
 
 Additionally, the web application received a new feature which allows the user to calculate charges for multiple calculation methods on a single calculation request. This significantly improves the users workflow since previously the user had to make multiple calculation requests to achieve the same results. This feature also allows the user to switch between the different calculated charges by using the highlighted UI controls.
 
----
-
 Since both web applications share the same architecture, the integration of the Molstar Viewer into AlphaCharges was exactly the same. The AlphaCharges application also received a new feature which is a new page to which the user is redirected whenever during the calculation some atoms are detected to be problematic. On this page the user is presented with an error message that lists the problematic atoms together with a pop up text message which describes in more detail the specific problem related to the atom. Additionally, the user has an option to click on the name of an atom in the error message, which will then trigger the Molstar Viewer to zoom in on the atom and higlight it in green, as is shown in this example.
 
 Finally, the work done on the AlphaCharges web application directly contributed to a research paper which was published in the Nucleic Acids Research journal which is a biomolecular journal with an impact factor of over 19.
-
----
 
 To summarize my work, I have created the Molstar extension for visualizing partial atomic charges, I have integrated the updated Molstar viewer into the Atomic Charge Calculator and AlphaCharges web applications, additionally I have extended the capabilities of both of these web applications, and lastly I have directly contributed with this work to a research paper which was published in a reputable scientific journal.
 
